@@ -44,7 +44,7 @@ def main():
         data = list(map(int, input().split()))
 
     elif input_type == "F":
-        with open("input_file.txt", "r") as f:
+        with open(" ", "r") as f:
             n = int(f.readline())
             data = list(map(int, f.readline().split()))
 
