@@ -25,7 +25,7 @@ def build_heap(arr):
     return swaps
 def main():
     
-    n = int(input())
+    n = int(input().strip())
     arr = list(map(int, input().split()))
     swaps = build_heap(arr)
     print(len(swaps))
