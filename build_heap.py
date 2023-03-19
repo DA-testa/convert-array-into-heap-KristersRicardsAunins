@@ -1,46 +1,44 @@
 import os
-#KristersRicardsAunins221RDC033
-def uztaisam(data):
-    jamaina = []
+#KristersRA
+def taisam(data):
+    mainam = []
     lielums = len(data)
     for i in range(lielums // 2, -1, -1):
-        samainam(data, i, jamaina)
-    return jamaina
+        sift_down(data, i, mainam)
+    return mainam
 
-def samainam(data, i, jamaina):
-    heap_size = len(data)
-    while True:
-        min_inde = i
-        kreisais_child = 2 * i + 1
-        labais_child = 2 * i + 2
-        if kreisais_child < heap_size and data[kreisais_child] < data[min_inde]:
-            min_inde = kreisais_child
-        if labais_child < heap_size and data[labais_child] < data[v]:
-            min_inde = kreisais_child
-        if min_inde == i:
-            break
-        jamaina.append((i, min_inde))
-        data[i], data[min_inde] = data[min_inde], data[i]
-        i = min_inde
-
+def maz(data, i, mainam):
+    lielums = len(data)
+    min_index = i
+    left_child = 2 * i + 1
+    right_child = 2 * i + 2
+    if left_child < lielums and data[left_child] < data[min_index]:
+        min_index = left_child
+    if right_child < lielums and data[right_child] < data[min_index]:
+        min_index = right_child
+    if min_index != i:
+        mainam.append((i, min_index))
+        data[i], data[min_index] = data[min_index], data[i]
+        maz(data, min_index, mainam)
+        
 def main():
-    ievade = input("K, F")
+    ievade = input("K  F")
     if "I" in ievade:
         n = int(input())
         data = list(map(int, input().split()))
         assert len(data) == n
     elif "F" in ievade:
-        fails = input("K")
+        fails = input()
         atrasanas = './tests/'
         faila_vieta = os.path.join(atrasanas, fails)
         with open(faila_vieta, mode="r") as file:
             n = int(file.readline())
             data = list(map(int, file.readline().split()))
-    jamaina = uztaisam(data)
-    print(len(jamaina))
-    for i, j in jamaina:
+    swaps = taisam(data)
+    print(len(swaps))
+    for i, j in swaps:
         print(i, j)
-        
+
 if __name__ == "__main__":
     main()
-#KRISTERSRICARDSAUNINS
+ #KristersAunins
