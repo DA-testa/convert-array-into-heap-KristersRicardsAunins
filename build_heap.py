@@ -4,7 +4,7 @@ def uztaisam(data):
     jamaina = []
     lielums = len(data)
     for i in range(lielums // 2, -1, -1):
-        sift_down(data, i, jamaina)
+        samainam(data, i, jamaina)
     return jamaina
 
 def samainam(data, i, jamaina):
