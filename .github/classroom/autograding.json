@@ -1,0 +1,34 @@
+{
+  "tests": [
+    {
+      "name": "1",
+      "setup": "",
+      "run": "python3 build_heap.py",
+      "input": "I\r\n5\r\n5 4 3 2 1",
+      "output": "3\r\n1 4\r\n0 1\r\n1 3",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 1
+    },
+    {
+      "name": "2",
+      "setup": "",
+      "run": "python3 build_heap.py",
+      "input": "I\r\n5\r\n1 2 3 4 5",
+      "output": "0",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 1
+    },
+    {
+      "name": "4",
+      "setup": "",
+      "run": "python3 build_heap.py",
+      "input": "F\r\n04",
+      "output": "99990",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 1
+    }
+  ]
+}
