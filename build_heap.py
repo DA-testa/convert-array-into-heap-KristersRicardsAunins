@@ -33,7 +33,7 @@ def main():
         arr = list(map(int, input().split()))
     else:
     # Read input from file
-        filename = input("Enter filename: ")
+        filename = input("Enter filename: ").strip()
         with open(filename, "r") as f:
             n = int(f.readline().strip())
             arr = list(map(int, f.readline().split()))
