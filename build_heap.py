@@ -4,8 +4,8 @@ def taisam(data):
     mainam = []
     lielums = len(data)
     for i in range(lielums // 2, -1, -1):
-        sift_down(data, i, mainam)
-    return mainam
+        maz(data, i, mainam)
+    return maz
 
 def maz(data, i, mainam):
     lielums = len(data)
