@@ -10,18 +10,18 @@ def uztaisam(data):
 def samainam(data, i, jamaina):
     heap_size = len(data)
     while True:
-        min_index = i
-        left_child = 2 * i + 1
-        right_child = 2 * i + 2
-        if left_child < heap_size and data[left_child] < data[min_index]:
-            min_index = left_child
-        if right_child < heap_size and data[right_child] < data[min_index]:
-            min_index = right_child
-        if min_index == i:
+        min_inde = i
+        kreisais_child = 2 * i + 1
+        labais_child = 2 * i + 2
+        if kreisais_child < heap_size and data[kreisais_child] < data[min_inde]:
+            min_inde = kreisais_child
+        if labais_child < heap_size and data[labais_child] < data[v]:
+            min_inde = kreisais_child
+        if min_inde == i:
             break
-        jamaina.append((i, min_index))
-        data[i], data[min_index] = data[min_index], data[i]
-        i = min_index
+        jamaina.append((i, min_inde))
+        data[i], data[min_inde] = data[min_inde], data[i]
+        i = min_inde
 
 def main():
     ievade = input("K, F")
