@@ -3,15 +3,14 @@ import os
 def build_heap(data):
     heap_size = len(data)
     swaps = []
-    for i in range(1, heap_size):
+    for i in range(heap_size):
+        parent = (i - 1) // 2
         j = i
-        while j > 0:
-            parent = (j - 1) // 2
-            if data[j] <= data[parent]:
-                break
+        while j > 0 and data[j] > data[parent]:
             swaps.append((parent, j))
             data[parent], data[j] = data[j], data[parent]
             j = parent
+            parent = (j - 1) // 2
     return swaps
 
 def sift_down(data, i, swaps):
