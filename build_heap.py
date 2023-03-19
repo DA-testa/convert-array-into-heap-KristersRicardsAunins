@@ -25,8 +25,18 @@ def build_heap(arr):
     return swaps
 def main():
     
-    n = int(input().strip())
-    arr = list(map(int, input().split()))
+    input_type = input("Enter input type (I for keyboard input, F for file input): ")
+
+    if input_type == "I":
+    # Read input from keyboard
+        n = int(input().strip())
+        arr = list(map(int, input().split()))
+    else:
+    # Read input from file
+        filename = input("Enter filename: ")
+        with open(filename, "r") as f:
+            n = int(f.readline().strip())
+            arr = list(map(int, f.readline().split()))
     swaps = build_heap(arr)
     print(len(swaps))
     for i, j in swaps:
