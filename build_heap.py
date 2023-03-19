@@ -34,9 +34,9 @@ def main():
         with open(faila_vieta, mode="r") as file:
             n = int(file.readline())
             data = list(map(int, file.readline().split()))
-    swaps = taisam(data)
-    print(len(swaps))
-    for i, j in swaps:
+    mainam = taisam(data)
+    print(len(mainam))
+    for i, j in mainam:
         print(i, j)
 
 if __name__ == "__main__":
