@@ -31,13 +31,13 @@ def sift_down(data, i, swaps):
         i = min_index
 
 def main():
-    ievade = input()
+    ievade = input("K, F")
     if "I" in ievade:
         n = int(input())
         data = list(map(int, input().split()))
         assert len(data) == n
     elif "F" in ievade:
-        fails = input()
+        fails = input("K")
         atrasanas = './tests/'
         faila_vieta = os.path.join(atrasanas, fails)
         with open(faila_vieta, mode="r") as file:
