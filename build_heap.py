@@ -3,7 +3,7 @@ import os
 def build_heap(data):
     heap_size = len(data)
     swaps = []
-    for i in range(heap_size):
+    for i in range(1, heap_size):
         j = i
         while j > 0:
             parent = (j - 1) // 2
