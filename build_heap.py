@@ -1,25 +1,25 @@
 import os
 #KristersRA
 def build_heap(data):
-    swaps = []
+    mainam = []
     lielums = len(data)
     for i in range(lielums // 2, -1, -1):
-        sift_down(data, i, swaps)
-    return swaps
+        maz(data, i, mainam)
+    return mainam
 
-def sift_down(data, i, swaps):
+def maz(data, i, mainam):
     lielums = len(data)
-    min_index = i
-    left_child = 2 * i + 1
-    right_child = 2 * i + 2
-    if left_child < lielums and data[left_child] < data[min_index]:
-        min_index = left_child
-    if right_child < lielums and data[right_child] < data[min_index]:
-        min_index = right_child
-    if min_index != i:
-        swaps.append((i, min_index))
-        data[i], data[min_index] = data[min_index], data[i]
-        sift_down(data, min_index, swaps)
+    min_inde = i
+    kreisais = 2 * i + 1
+    labais = 2 * i + 2
+    if kreisais < lielums and data[kreisais] < data[min_inde]:
+        min_inde = kreisais
+    if labais < lielums and data[labais] < data[min_inde]:
+        min_inde = labais
+    if min_inde != i:
+        mainam.append((i, min_inde))
+        data[i], data[min_inde] = data[min_inde], data[i]
+        maz(data, min_inde, mainam)
         
 def main():
     ievade = input()
@@ -34,9 +34,9 @@ def main():
         with open(faila_vieta, mode="r") as file:
             n = int(file.readline())
             data = list(map(int, file.readline().split()))
-    swaps = build_heap(data)
-    print(len(swaps))
-    for i, j in swaps:
+    mainam = build_heap(data)
+    print(len(mainam))
+    for i, j in mainam:
         print(i, j)
         
 if __name__ == "__main__":
