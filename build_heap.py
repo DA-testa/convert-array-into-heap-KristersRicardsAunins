@@ -1,13 +1,13 @@
 import os
 #KristersRA
-def taisam(data):
-    mainam = []
+def build_heap(data):
+    swaps = []
     lielums = len(data)
     for i in range(lielums // 2, -1, -1):
-        maz(data, i, mainam)
-    return maz
+        sift_down(data, i, swaps)
+    return swaps
 
-def maz(data, i, mainam):
+def sift_down(data, i, swaps):
     lielums = len(data)
     min_index = i
     left_child = 2 * i + 1
@@ -17,12 +17,12 @@ def maz(data, i, mainam):
     if right_child < lielums and data[right_child] < data[min_index]:
         min_index = right_child
     if min_index != i:
-        mainam.append((i, min_index))
+        swaps.append((i, min_index))
         data[i], data[min_index] = data[min_index], data[i]
-        maz(data, min_index, mainam)
+        sift_down(data, min_index, swaps)
         
 def main():
-    ievade = input("K  F")
+    ievade = input()
     if "I" in ievade:
         n = int(input())
         data = list(map(int, input().split()))
@@ -34,11 +34,12 @@ def main():
         with open(faila_vieta, mode="r") as file:
             n = int(file.readline())
             data = list(map(int, file.readline().split()))
-    mainam = taisam(data)
-    print(len(mainam))
-    for i, j in mainam:
+    swaps = build_heap(data)
+    print(len(swaps))
+    for i, j in swaps:
         print(i, j)
-
+        
 if __name__ == "__main__":
     main()
- #KristersAunins
+    
+     #KristersRICAUNins
