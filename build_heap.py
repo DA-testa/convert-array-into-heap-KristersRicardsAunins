@@ -1,42 +1,69 @@
 # python3
+def parent(i):
+"""
+This function returns the index of the parent of node i
+"""
+return (i-1)//2
 
+def left_child(i):
+"""
+This function returns the index of the left child of node i
+"""
+return 2*i + 1
+
+def right_child(i):
+"""
+This function returns the index of the right child of node i
+"""
+return 2*i + 2
+
+def sift_down(data, swaps, i):
+"""
+This function sifts down the element at index i to maintain the heap property
+"""
+# Find the maximum element among i and its children
+max_index = i
+l = left_child(i)
+if l < len(data) and data[l] < data[max_index]:
+max_index = l
+r = right_child(i)
+if r < len(data) and data[r] < data[max_index]:
+max_index = r
+# If i is not the maximum, swap it with the maximum and continue sifting down
+if i != max_index:
+swaps.append((i, max_index))
+data[i], data[max_index] = data[max_index], data[i]
+sift_down(data, swaps, max_index)
 
 def build_heap(data):
-    swaps = []
-    # TODO: Creat heap and heap sort
-    # try to achieve  O(n) and not O(n2)
-
-
-    return swaps
+"""
+This function converts the input array into a heap using O(n) swaps
+"""
+swaps = []
+# Start from the last node and work upwards to the root node
+for i in range(len(data)//2, -1, -1):
+sift_down(data, swaps, i)
+return swap
 
 
 def main():
     
-    # TODO : add input and corresponding checks
-    # add another input for I or F 
-    # first two tests are from keyboard, third test is from a file
+    input_type = input("Enter input type (K for keyboard input, F for file input): ")
+    if input_type == "K":
+        n = int(input())
+        data = list(map(int, input().split()))
 
+    elif input_type == "F":
+        with open("input_file.txt", "r") as f:
+            n = int(f.readline())
+            data = list(map(int, f.readline().split()))
 
-    # input from keyboard
-    n = input().strip()
-    if n.isnumeric():
-        n=int(n)
     else:
-        n=int(n.replace('\r', ''))
-    data = list(map(int, input().split()))
+        print("Invalid input type. Enter K for keyboard input or F for file input.")
+        return
 
-    # checks if lenght of data is the same as the said lenght
-    #assert len(data) == n
-
-    # calls function to assess the data 
-    # and give back all swaps
+    assert len(data) == n
     swaps = build_heap(data)
-
-    # TODO: output how many swaps were made, 
-    # this number should be less than 4n (less than 4*len(data))
-
-
-    # output all swaps
     print(len(swaps))
     for i, j in swaps:
         print(i, j)
