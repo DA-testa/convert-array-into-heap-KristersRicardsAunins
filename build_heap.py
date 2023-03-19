@@ -1,15 +1,15 @@
 # python3
 def parent(i):
 
-return (i-1)//2
+    return (i-1)//2
 
 def left_child(i):
 
-return 2*i + 1
+    return 2*i + 1
 
 def right_child(i):
 
-return 2*i + 2
+    return 2*i + 2
 
 def sift_down(data, swaps, i):
 
