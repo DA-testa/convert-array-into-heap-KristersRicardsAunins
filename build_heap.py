@@ -1,10 +1,17 @@
 import os
 #KristersRicardsAunins221RDC033
 def build_heap(data):
+    heap_size = len(data)
     swaps = []
-    lielums = len(data)
-    for i in range(lielums // 2, -1, -1):
-        sift_down(data, i, swaps)
+    for i in range(heap_size):
+        j = i
+        while j > 0:
+            parent = (j - 1) // 2
+            if data[j] <= data[parent]:
+                break
+            swaps.append((parent, j))
+            data[parent], data[j] = data[j], data[parent]
+            j = parent
     return swaps
 
 def sift_down(data, i, swaps):
