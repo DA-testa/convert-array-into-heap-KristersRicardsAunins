@@ -1,19 +1,13 @@
 import os
 #KristersRicardsAunins221RDC033
 def build_heap(data):
-    heap_size = len(data)
-    swaps = []
-    for i in range(heap_size):
-        parent = (i - 1) // 2
-        j = i
-        while j > 0 and data[j] > data[parent]:
-            swaps.append((parent, j))
-            data[parent], data[j] = data[j], data[parent]
-            j = parent
-            parent = (j - 1) // 2
-    return swaps
+    jamaina = []
+    lielums = len(data)
+    for i in range(lielums // 2, -1, -1):
+        sift_down(data, i, jamaina)
+    return jamaina
 
-def sift_down(data, i, swaps):
+def sift_down(data, i, jamaina):
     heap_size = len(data)
     while True:
         min_index = i
@@ -25,7 +19,7 @@ def sift_down(data, i, swaps):
             min_index = right_child
         if min_index == i:
             break
-        swaps.append((i, min_index))
+        jamaina.append((i, min_index))
         data[i], data[min_index] = data[min_index], data[i]
         i = min_index
 
@@ -42,10 +36,11 @@ def main():
         with open(faila_vieta, mode="r") as file:
             n = int(file.readline())
             data = list(map(int, file.readline().split()))
-    swaps = build_heap(data)
-    print(len(swaps))
-    for i, j in swaps:
+    jamaina = build_heap(data)
+    print(len(jamaina))
+    for i, j in jamaina:
         print(i, j)
         
 if __name__ == "__main__":
     main()
+#KRISTERSRICARDSAUNINS
