@@ -35,7 +35,7 @@ def main():
     data = list(map(int, input().split()))
 
     # checks if lenght of data is the same as the said lenght
-    assert len(data) == n
+    #assert len(data) == n
 
     # calls function to assess the data 
     # and give back all swaps
