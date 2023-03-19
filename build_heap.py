@@ -1,13 +1,13 @@
 import os
 #KristersRicardsAunins221RDC033
-def build_heap(data):
+def uztaisam(data):
     jamaina = []
     lielums = len(data)
     for i in range(lielums // 2, -1, -1):
         sift_down(data, i, jamaina)
     return jamaina
 
-def sift_down(data, i, jamaina):
+def samainam(data, i, jamaina):
     heap_size = len(data)
     while True:
         min_index = i
@@ -36,7 +36,7 @@ def main():
         with open(faila_vieta, mode="r") as file:
             n = int(file.readline())
             data = list(map(int, file.readline().split()))
-    jamaina = build_heap(data)
+    jamaina = uztaisam(data)
     print(len(jamaina))
     for i, j in jamaina:
         print(i, j)
